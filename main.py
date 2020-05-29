@@ -46,7 +46,7 @@ async def fetch_anime_picture():
         source = f"https://www.pixiv.net/en/artworks/{post.pixiv_id}" if post.pixiv_id else post.source
         artist = proper_case(post.tag_string_artist)[:30] if post.tag_string_artist else "Unknown"
         character = proper_case(post.tag_string_character)[:30] if post.tag_string_character else "Original"
-        dest = f"assets/{post.id}.{post.file_ext}"
+        dest = os.path.abspath(f"assets/{post.id}.{post.file_ext}")
         urllib.request.urlretrieve(post.file_url, dest)
         media = twitter.media_upload(dest)
         print(media)
