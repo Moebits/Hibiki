@@ -1,0 +1,5 @@
+# Sensitive Data
+.env
+
+# Downloaded Content
+assets/*
