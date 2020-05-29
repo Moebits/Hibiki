@@ -49,7 +49,6 @@ async def fetch_anime_picture():
         dest = os.path.abspath(f"assets/{post.id}.{post.file_ext}")
         urllib.request.urlretrieve(post.file_url, dest)
         media = twitter.media_upload(dest)
-        print(media)
         content = f"Character: {character} Artist: {artist}\n{source}"
         r18 = False if post.rating == "s" else True
         twitter.update_status(content, media_ids=[media.media_id], possibly_sensitive=r18)
@@ -57,6 +56,8 @@ async def fetch_anime_picture():
 
 if __name__ == "__main__":
     loop = asyncio.get_event_loop()
-    loop.create_task(sync_followers())
-    loop.create_task(fetch_anime_picture())
-    loop.run_forever()
+    loop.run_until_complete(asyncio.gather(
+        sync_followers(),
+        fetch_anime_picture()
+    ))
+    loop.close()
