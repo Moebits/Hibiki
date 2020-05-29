@@ -6,7 +6,6 @@ import asyncio
 import urllib.request
 from dotenv import load_dotenv
 from dotmap import DotMap
-from concurrent.futures import ProcessPoolExecutor
 load_dotenv()
 
 consumer_key = os.getenv("TWITTER_CONSUMER_KEY")
@@ -18,6 +17,9 @@ danbooru_key = os.getenv("DANBOORU_API_KEY")
 auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
 auth.set_access_token(access_token, access_token_secret)
 twitter = tweepy.API(auth)
+
+if not os.path.exists("assets"):
+    os.makedirs("assets")
 
 def proper_case(str):
     """Utility to convert to Proper Case."""
