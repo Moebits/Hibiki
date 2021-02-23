@@ -1,6 +1,6 @@
 # Hibiki Twitter Bot
 
-<img src="https://pm1.narvii.com/6488/e57657baa3d2b2690484d7edecfedac8c87a4535_hq.jpg" width=250 height=400>
+<img src="https://cdn.donmai.us/sample/ef/db/__hibiki_kantai_collection_drawn_by_hizuki_yayoi__sample-efdbe1f307efdf4eeec0b96a040e26ee.jpg" width=600 height=500>
 
 A simple bot on twitter that tweets anime pictures.
 
